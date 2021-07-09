@@ -24,14 +24,14 @@ namespace SamuraiApp.UI
             //AddSamuraisByName("Shimada", "Okamoto", "Kikuchio", "Hayashida");
             //AddSamuraisByName("Julie2", "Samson");
             //GetSamurais();
-            AddVariousTypes();
+           // AddVariousTypes();
             //QueryFilters();
             //QueryAggregates();
             //RetrieveAndUpdateSamurai();
             //RetrieveAndUpdateMultipleSamurais();
             //MultipleDatabaseOperations();
             //RetrieveAndDeleteASamurai();
-            //QueryAndUpdateBattles_Disconnected();
+            QueryAndUpdateBattles_Disconnected();
         }
 
 		private static void AddSamurai()
@@ -53,16 +53,16 @@ namespace SamuraiApp.UI
 
         private static void AddVariousTypes()
         {
-            _context.AddRange(new Samurai { Name = "Shimada" },
+            /*_context.AddRange(new Samurai { Name = "Shimada" },
                               new Samurai { Name = "Okamoto" },
                               new Battle { Name = "Battle of Anegawa" },
-                              new Battle { Name = "Battle of Nagashino" });
+                              new Battle { Name = "Battle of Nagashino" });*/
             //_context.Samurais.AddRange(
             //    new Samurai { Name = "Shimada" },
             //    new Samurai { Name = "Okamoto" });
-            //_context.Battles.AddRange(
-            //    new Battle { Name = "Battle of Anegawa" },
-            //    new Battle { Name = "Battle of Nagashino" });
+            _context.Battles.AddRange(
+                new Battle { Name = "Battle of Anegawa" },
+                new Battle { Name = "Battle of Nagashino" });
             _context.SaveChanges();
         }
         private static void AddSamuraisByName(params string[] names)
@@ -130,7 +130,7 @@ namespace SamuraiApp.UI
             _context.SaveChanges();
         }
 
-        /*private static void QueryAndUpdateBattles_Disconnected()
+        private static void QueryAndUpdateBattles_Disconnected()
         {
             List<Battle> disconnectedBattles;
             using (var context1 = new SamuraiContext())
@@ -147,6 +147,6 @@ namespace SamuraiApp.UI
                 context2.UpdateRange(disconnectedBattles);
                 context2.SaveChanges();
             }
-        }*/
+        }
     }
 }
